@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './index.css';
 import Header from './components/Header';
+import Content from './components/Content';
 
 function App() {
   return (
   <section class="todoapp">
 
    <Header/>
-
+   <Content/>
   </section>
+
  
   );
 }
