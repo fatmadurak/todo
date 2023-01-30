@@ -3,7 +3,14 @@ import { UseTodoContext } from '../Context/TodoContext'
 
 function ContentFooter() {
 
-	const {todos,filter,setFilter}=UseTodoContext();
+	const {todos,setTodos,filter,setFilter}=UseTodoContext();
+	const clearCompleted=()=>{
+
+ const cloneTodo=[...todos]
+ const newTodos=cloneTodo.filter(todo=>!todo.completed)
+ setTodos(newTodos)
+
+	}
   return (
     <footer className="footer">
 		<span className="todo-count">
@@ -23,7 +30,7 @@ function ContentFooter() {
 			</li>
 		</ul>
 
-		<button className="clear-completed">
+		<button className="clear-completed" onClick={clearCompleted}>
 			Clear completed
 		</button>
 	</footer>
