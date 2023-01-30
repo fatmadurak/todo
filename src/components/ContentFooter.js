@@ -1,22 +1,25 @@
 import React from 'react'
+import { UseTodoContext } from '../Context/TodoContext'
 
 function ContentFooter() {
+
+	const {todos,filter,setFilter}=UseTodoContext();
   return (
     <footer className="footer">
 		<span className="todo-count">
-			<strong>2</strong>
-			items left
+			<strong>{todos.length} </strong>
+			item{todos.length>1 && "s"} left
 		</span>
 
 		<ul className="filters">
 			<li>
-				<a href="#/" className="selected">All</a>
+				<a href="#/" className={filter==="all"?"selected":""} onClick={()=>setFilter("all")}>All</a>
 			</li>
 			<li>
-				<a href="#/">Active</a>
+				<a href="#/" className={filter==="active"?"selected":""} onClick={()=>setFilter("active")}>Active</a>
 			</li>
 			<li>
-				<a href="#/">Completed</a>
+				<a href="#/" className={filter==="completed"?"selected":""} onClick={()=>setFilter("completed")}>Completed</a>
 			</li>
 		</ul>
 

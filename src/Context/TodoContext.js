@@ -6,7 +6,7 @@ const TodoContext=createContext();
 
 
 export const TodoContextProvider=({children})=>{
-
+    const [filter,setFilter]=useState("all");
     const[todos,setTodos]=useState([
 
         {
@@ -54,6 +54,8 @@ export const TodoContextProvider=({children})=>{
      addTodo,
      toggleTodo,
      removeTodo,
+     filter,
+     setFilter,
     }
     return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>
 

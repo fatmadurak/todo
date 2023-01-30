@@ -2,15 +2,24 @@ import React from 'react'
 import { UseTodoContext } from '../../../Context/TodoContext'
 import ListItem from './ListItem';
 
+
+let filtered=null;
 function List() {
 
-	const{todos,setTodos}=UseTodoContext();
+	const{todos,setTodos,filter}=UseTodoContext();
+
+	filtered=todos;
+
+	if (filter!=="all") {
+		filtered=todos.filter((todo)=>filter=="active"?todo.completed===false && todo:todo.completed===true && todo)
+	}
+
   return (
     <ul className="todo-list">
 		{
 
 
-       todos.map((todo)=>(
+       filtered.map((todo)=>(
 
 		<ListItem key={todo.id} todo={todo}/>
 	   ))
