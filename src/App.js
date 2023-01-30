@@ -5,7 +5,7 @@ import Content from './components/Content';
 
 function App() {
   return (
-  <section class="todoapp">
+  <section className="todoapp">
 
    <Header/>
    <Content/>
