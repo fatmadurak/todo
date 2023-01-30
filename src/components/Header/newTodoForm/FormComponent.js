@@ -1,5 +1,6 @@
 import React from 'react'
 import {Field, Formik,Form} from "formik"
+import validations from './Validations';
 
 function FormComponent() {
 return(
@@ -9,10 +10,15 @@ return(
       text: '',
       
     }}
-    onSubmit={async (values) => {
+    onSubmit={async (values,bag) => {
       await new Promise((r) => setTimeout(r, 500));
       alert(JSON.stringify(values, null, 2));
+   
+      bag.resetForm()
+
     }}
+
+    validationSchema={validations}
   >
     <Form >
       
