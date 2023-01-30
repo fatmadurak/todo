@@ -3,7 +3,7 @@ import { UseTodoContext } from '../../../Context/TodoContext'
 
 function ListItem({todo}) {
 
-   const {toggleTodo}=UseTodoContext(); 
+   const {toggleTodo,removeTodo}=UseTodoContext(); 
 
 const onChange=(id)=>{
 
@@ -12,12 +12,20 @@ const onChange=(id)=>{
 
 
 }
+
+
+const onDestroy=(id)=>{
+
+removeTodo(id)
+
+
+}
   return (
     <li key={todo.id} className={todo.completed?"completed" : ""}>
     <div className="view">
         <input className="toggle" type="checkbox" checked={todo.completed}  onChange={()=>onChange(todo.id)} />
         <label>{todo.text}</label>
-        <button className="destroy"></button>
+        <button className="destroy" onClick={()=>onDestroy(todo.id)}></button>
     </div>
 </li>
 
