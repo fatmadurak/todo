@@ -11,9 +11,10 @@ export const TodoContextProvider=({children})=>{
         {
            id:1,
            text:"Learn React",
-           completed:false,
+           completed:true,
 
-        }
+        },
+     
     ]);
 
     const values={
@@ -27,7 +28,7 @@ export const TodoContextProvider=({children})=>{
 
 }
 
-const UseTodoContext=()=>{
+export const UseTodoContext=()=>{
 
 const context=useContext(TodoContext);
 
