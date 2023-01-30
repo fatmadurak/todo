@@ -1,8 +1,11 @@
 import React from 'react'
 import {Field, Formik,Form} from "formik"
 import validations from './Validations';
-
+import { UseTodoContext } from '../../../Context/TodoContext';
 function FormComponent() {
+
+  const {addTodo}=UseTodoContext();
+
 return(
     
     <Formik
@@ -11,8 +14,10 @@ return(
       
     }}
     onSubmit={async (values,bag) => {
-      await new Promise((r) => setTimeout(r, 500));
-      alert(JSON.stringify(values, null, 2));
+      await new Promise((r) => setTimeout(r, 100));
+      
+
+       addTodo(values.text);
    
       bag.resetForm()
 
