@@ -1,12 +1,11 @@
 import React from 'react'
+import FormComponent from './FormComponent'
 
 function Header() {
   return (
     <header className="header">
     <h1>todos</h1>
-    <form>
-        <input className="new-todo" placeholder="What needs to be done?" autoFocus />
-    </form>
+   <FormComponent/>
    </header>
   )
 }

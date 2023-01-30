@@ -1,7 +1,9 @@
 import React from 'react'
+import ContentFooter from './ContentFooter'
 
 function Content() {
   return (
+	<>
 	<section className="main">
 	
 
@@ -28,8 +30,10 @@ function Content() {
 				</div>
 			</li>
 		</ul>
+		
 	</section>
-
+	<ContentFooter/>
+	</>
   )
 }
 
